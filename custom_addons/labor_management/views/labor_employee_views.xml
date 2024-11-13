@@ -1,0 +1,48 @@
+<odoo>
+
+    <!-- Tree View for Labor Employee -->
+    <record id="view_labor_employee_tree" model="ir.ui.view">
+        <field name="name">labor.employee.tree</field>
+        <field name="model">labor.employee</field>
+        <field name="arch" type="xml">
+            <tree string="Labor Employee">
+                <field name="employee_name"/>
+                <field name="address"/>
+                <field name="skill"/>
+                <field name="salary"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Labor Employee -->
+    <record id="view_labor_employee_form" model="ir.ui.view">
+        <field name="name">labor.employee.form</field>
+        <field name="model">labor.employee</field>
+        <field name="arch" type="xml">
+            <form string="Labor Employee">
+                <sheet>
+                    <group>
+                        <field name="employee_name"/>
+                        <field name="address"/>
+                        <field name="skill"/>
+                        <field name="salary"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to Open Labor Employee Views -->
+    <record id="action_labor_employee" model="ir.actions.act_window">
+        <field name="name">Labor Employee</field>
+        <field name="res_model">labor.employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top-Level Menu for Labor Management -->
+    <menuitem id="menu_labor_management" name="Labor Management" action="action_labor_employee" sequence="2"/>
+
+    <!-- Sub-Menu Item for Labor Employee -->
+    <menuitem id="menu_labor_employee" name="Employees" parent="menu_labor_management"
+              action="action_labor_employee" sequence="10"/>
+</odoo>
